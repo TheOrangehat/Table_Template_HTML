@@ -1,0 +1,28 @@
+.container{
+    margin: 50px 50px;
+}
+
+.table {
+    border-collapse: collapse;
+    /* background-color: chartreuse; */
+    width: 42vw;
+    min-width: 450px;
+    font-family: sans-serif;
+
+}
+
+.table thead tr th{
+    text-align: center;
+    padding: 5px 0px;
+    border: rgb(0, 0, 0) solid 2px;
+
+}
+.table tr:nth-of-type(even) {
+    background-color: #fffceb;
+  }
+
+.table tbody tr, td {
+    /* background-color: aqua; */
+    border: rgb(0, 0, 0) solid 2px;
+    padding: 10px;
+}
