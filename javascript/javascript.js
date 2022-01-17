@@ -1,3 +1,67 @@
+var Tablehead = document.getElementsByClassName("table")[0];
+var importantUl = document.getElementsByClassName("impoul")[0];
+var feesUl = document.getElementsByClassName("feeul")[0];
+var midTh = document.getElementById("midTh");
+var postLine = document.getElementsByClassName("postlinecont")[0];
+var vacaLine = document.getElementById("VacancyLine");
+var AppplySec = document.getElementById("ApplySection");
+var Container = document.getElementsByClassName("container")[0];
+
+function Adder(id) {
+  console.log(id);
+  if (id == "important") {
+    importantUl.innerHTML += `<li onclick="EditText(event)">item</li>`;
+  } else if (id == "Fees") {
+    feesUl.innerHTML += `<li onclick="EditText(event)">item</li>`;
+  } else if (id == "Title") {
+    Tablehead.tHead.innerHTML += `<tr class="jch"><th onclick="EditText(event)" colspan="17">Title</th></tr>`;
+  } else if (id == "midThBtn") {
+    midTh.innerHTML += `<tr class="jcmh"><th onclick="EditText(event)" colspan="17">Title</th></tr><br>`;
+  } else if (id == "postLine") {
+    postLine.innerHTML += `<tr>
+    <td onclick="EditText(event)" colspan="5">Post Name</td>
+    <td onclick="EditText(event)" colspan="3">Post</td>
+    <td onclick="EditText(event)" colspan="9">Post Eligibility</td>
+</tr>`;
+  } else if (id == "VacancyLine") {
+    vacaLine.innerHTML += `<tr>
+    <td onclick="EditText(event)" colspan="3">Vacancy</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+    <td onclick="EditText(event)" colspan="2">Cast</td>
+</tr>`;
+  } else if (id == "ApplyRow") {
+    linkmaker();
+  }
+}
+
+function linkmaker() {
+  var link = window.prompt("Enter your link: ");
+  AppplySec.innerHTML += `<tr>
+  <td onclick="EditText(event)" colspan="10">Apply Now</td>
+  <td onclick="EditText(event)" colspan="7"><button href="${link}" target="_balank">Click here </button></td>
+  
+</tr>`;
+  window.alert("Link previwe is not available!!");
+}
+
+function addTh() {
+  Tablehead.tHead.innerHTML += `<tr class="jch">
+    <th onclick="EditText(event)" colspan="17">Title</th>
+</tr>`;
+}
+function removeTh() {
+  var jch = document.getElementsByClassName("jch");
+  let i = jch.length;
+  if (i > 0) {
+    jch[i - 1].remove();
+  }
+}
+
 function EditText(event) {
   let textarea = document.getElementById("textArea");
 
@@ -15,8 +79,9 @@ function EditText(event) {
 
 function EditLink(event) {
   var target = event.target;
+  var link;
   if (target.getAttribute("href") == null) {
-    var link = window.prompt("Enter your link: ");
+    link = window.prompt("Enter your link: ");
     target.setAttribute("href", link);
     console.log(link);
   } else {
@@ -24,4 +89,10 @@ function EditLink(event) {
 
     window.open(link);
   }
+}
+
+function CopyMaker() {
+  var copytext = Container.innerHTML;
+
+  navigator.clipboard.writeText(copytext);
 }

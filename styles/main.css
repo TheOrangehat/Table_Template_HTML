@@ -8,6 +8,7 @@
     width: 42vw;
     min-width: 450px;
     font-family: sans-serif;
+    margin: 5px;
 
 }
 
@@ -25,4 +26,24 @@
     /* background-color: aqua; */
     border: rgb(0, 0, 0) solid 2px;
     padding: 10px;
+}
+.table button {
+    height: 40px;
+    width: 100px;
+    border-radius: 14px;
+    background-color: beige;
+    font-weight: bold;
+}
+
+.slidbar{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.slidDiv{
+    background-color: aquamarine;
+    margin: 5px 5px;
 }

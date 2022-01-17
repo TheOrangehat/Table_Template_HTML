@@ -11,40 +11,75 @@
 
 <body>
     <div class="container">
+        <style>
+            .table {
+                border-collapse: collapse;
+                /* background-color: chartreuse; */
+                width: 42vw;
+                min-width: 450px;
+                font-family: sans-serif;
+                margin: 5px;
+
+            }
+
+            .table thead tr th {
+                text-align: center;
+                padding: 5px 0px;
+                border: rgb(0, 0, 0) solid 2px;
+
+            }
+
+            .table tr:nth-of-type(even) {
+                background-color: #fffceb;
+            }
+
+            .table tbody tr,
+            td {
+                /* background-color: aqua; */
+                border: rgb(0, 0, 0) solid 2px;
+                padding: 10px;
+            }
+
+            .table button {
+                height: 40px;
+                width: 100px;
+                border-radius: 14px;
+                background-color: beige;
+                font-weight: bold;
+            }
+        </style>
         <table class="table">
+
             <thead>
-                <tr>
-                    <th onclick="EditText(event)" colspan="17">Title</th>
-                </tr>
-                <tr>
-                    <th onclick="EditText(event)" colspan="17">Title</th>
-                </tr>
                 <tr>
                     <th onclick="EditText(event)" colspan="17">Title</th>
                 </tr>
             </thead>
             <tbody>
-                
+
                 <tr>
                     <td colspan="8">
                         <h2 onclick="EditText(event)">Important Dates</h2>
-                        <ul>
-                            <li onclick="EditText(event)" >item</li>
-                            <li onclick="EditText(event)" >item</li>
-                            <li onclick="EditText(event)" >item</li>
+                        <ul class="impoul">
+                            <li onclick="EditText(event)">item</li>
+                            <li onclick="EditText(event)">item</li>
+                            <li onclick="EditText(event)">item</li>
                         </ul>
                     </td>
                     <td colspan="9">
-                        <h2 onclick="EditText(event)" >Fess</h2>
-                        <ul>
+                        <h2 onclick="EditText(event)">Fess</h2>
+                        <ul class="feeul">
                             <li onclick="EditText(event)">item</li>
                             <li onclick="EditText(event)">item</li>
                             <li onclick="EditText(event)">item</li>
                         </ul>
                     </td>
                 </tr>
+                <tr id="midTh"></tr>
+            <tbody class="postlinecont">
+
                 <tr>
-                    <td onclick="EditText(event)" colspan="5">Post Name</td>
+                    <td class="postlinecont" onclick="EditText(event)" colspan="5">Post Name</td>
                     <td onclick="EditText(event)" colspan="3">Post</td>
                     <td onclick="EditText(event)" colspan="9">Post Eligibility</td>
                 </tr>
@@ -58,37 +93,71 @@
                     <td onclick="EditText(event)" colspan="3">Post</td>
                     <td onclick="EditText(event)" colspan="9">Post Eligibility</td>
                 </tr>
-                <tr>
-                    <td onclick="EditText(event)" colspan="3">Vacancy</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                    <td onclick="EditText(event)" colspan="2">Cast</td>
-                </tr>
+            </tbody>
+
+            <tbody id="VacancyLine">
+                <td onclick="EditText(event)" colspan="3">Vacancy</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+                <td onclick="EditText(event)" colspan="2">Cast</td>
+            </tbody>
+            <tbody id="ApplySection">
                 <tr>
                     <td onclick="EditText(event)" colspan="10">Apply Now</td>
-                    <td onclick="EditLink(event)" colspan="7"><button target="_balank" >Click here </button></td>
+                    <td onclick="EditText(event)" colspan="7"><button target="_balank">Click here </button></td>
                 </tr>
                 <tr>
                     <td onclick="EditText(event)" colspan="10">Apply Now</td>
                     <td onclick="EditText(event)" colspan="7">Khatko!</td>
                 </tr>
                 <tr>
-                    <td onclick="EditText(event)"colspan="10">Apply Now</td>
-                    <td onclick="EditText(event)"colspan="7">Khatko!</td>
+                    <td onclick="EditText(event)" colspan="10">Apply Now</td>
+                    <td onclick="EditText(event)" colspan="7">Khatko!</td>
                 </tr>
                 <tr>
-                    <td onclick="EditText(event)"colspan="10">Apply Now</td>
-                    <td onclick="EditText(event)"colspan="7">Khatko!</td>
+                    <td onclick="EditText(event)" colspan="10">Apply Now</td>
+                    <td onclick="EditText(event)" colspan="7">Khatko!</td>
                 </tr>
+            </tbody>
             </tbody>
         </table>
     </div>
     <div class="slidbar">
-        
+        <div class="slidDiv">
+            <button onclick="addTh()">+</button><br><button onclick="removeTh()">-</button>
+            <p>Title line</p>
+        </div>
+        <div class="slidDiv">
+            <button id="important" onclick="Adder(this.id)">+</button>
+            <p>Add important Date line</p>
+        </div>
+        <div class="slidDiv">
+            <button id="Fees" onclick="Adder(this.id)">+</button>
+            <p>Add Fees line</p>
+        </div>
+        <div class="slidDiv">
+            <button id="midThBtn" onclick="Adder(this.id)">+</button>
+            <p>Add Line Under Fees and important dates </p>
+        </div>
+        <div class="slidDiv">
+            <button id="postLine" onclick="Adder(this.id)">+</button>
+            <p>Add Post Line</p>
+        </div>
+        <div class="slidDiv">
+            <button id="VacancyLine" onclick="Adder(this.id)">+</button>
+            <p>Add Vacancy line</p>
+        </div>
+        <div class="slidDiv">
+            <button id="ApplyRow" onclick="Adder(this.id)">+</button>
+            <p>Add Apply now btn </p>
+        </div>
+        <Button onclick="CopyMaker()">Copy</Button>
+
+
     </div>
     <script src="/javascript/javascript.js"></script>
 </body>
