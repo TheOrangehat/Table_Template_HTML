@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body>
+<body onload="restore()">
     <div class="container">
         <style>
             .table {
@@ -105,32 +105,50 @@
             <button onclick="addTh()">+</button><br><button onclick="removeTh()">-</button>
             <p>Title line</p>
         </div>
+        <hr>
         <div class="slidDiv">
             <button id="important" onclick="Adder(this.id)">+</button>
             <p>Add important Date line</p>
         </div>
+        <hr>
+
         <div class="slidDiv">
             <button id="Fees" onclick="Adder(this.id)">+</button>
             <p>Add Fees line</p>
         </div>
+        <hr>
+
         <div class="slidDiv">
             <button id="midThBtn" onclick="Adder(this.id)">+</button>
             <p>Add Line Under Fees and important dates </p>
         </div>
+        <hr>
+
         <div class="slidDiv">
             <button id="postLine" onclick="Adder(this.id)">+</button>
             <p>Add Post Line</p>
         </div>
+        <hr>
+
         <div class="slidDiv">
             <button id="VacancyLine" onclick="Adder(this.id)">+</button>
             <p>Add Vacancy line</p>
         </div>
+        <hr>
+
         <div class="slidDiv">
             <button id="ApplyRow" onclick="Adder(this.id)">+</button>
             <p>Add Apply now btn </p>
         </div>
-        <Button onclick="CopyMaker()">Copy</Button>
+        <hr>
 
+        
+
+
+    </div>
+    <div class="buttoncol">
+        <Button id="Copybtn" onclick="CopyMaker()">Copy</Button>
+        <Button onclick="delData()">Delete Restored Table</Button>
 
     </div>
     <script src="/javascript/javascript.js"></script>

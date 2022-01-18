@@ -14,7 +14,7 @@ function Adder(id) {
   } else if (id == "Fees") {
     feesUl.innerHTML += `<li onclick="EditText(event)">item</li>`;
   } else if (id == "Title") {
-    Tablehead.tHead.innerHTML += `<tr class="jch"><th onclick="EditText(event)" colspan="17">Title</th></tr>`;
+    Tablehead.tHead.innerHTML += `<tr class="jch"><th onclick="EditText(event)" colspan="17">Title</th><br></tr>`;
   } else if (id == "midThBtn") {
     midTh.innerHTML += `<tr class="jcmh"><th onclick="EditText(event)" colspan="17">Title</th></tr><br>`;
   } else if (id == "postLine") {
@@ -74,6 +74,8 @@ function EditText(event) {
   textarea = document.getElementById("textArea");
   textarea.addEventListener("blur", function () {
     target.innerHTML = textarea.value;
+    var copytext = Container.innerHTML;
+    localStorage.setItem("data", copytext);
   });
 }
 
@@ -95,4 +97,35 @@ function CopyMaker() {
   var copytext = Container.innerHTML;
 
   navigator.clipboard.writeText(copytext);
+}
+
+function restore() {
+  // if (localStorage.getItem("userName") == null){
+  //   var username = window.prompt("Enter Your name:");
+  //   localStorage.setItem("userName", username);
+
+  // }else{
+  //   window.alert("Hello! ", username);
+  // }
+
+  if (localStorage.getItem("data") == null) {
+    alert("Great! new Starting!");
+  } else {
+    Container.innerHTML = ``;
+    Container.innerHTML = localStorage.getItem("data");
+    window.alert("Last Table Restored!");
+    Tablehead = document.getElementsByClassName("table")[0];
+    importantUl = document.getElementsByClassName("impoul")[0];
+    feesUl = document.getElementsByClassName("feeul")[0];
+    midTh = document.getElementById("midTh");
+    postLine = document.getElementsByClassName("postlinecont")[0];
+    vacaLine = document.getElementById("VacancyLine");
+    AppplySec = document.getElementById("ApplySection");
+    Container = document.getElementsByClassName("container")[0];
+  }
+}
+
+function delData() {
+  localStorage.clear();
+  location.reload();
 }
