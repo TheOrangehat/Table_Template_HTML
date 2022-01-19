@@ -5,7 +5,7 @@ var midTh = document.getElementById("midTh");
 var postLine = document.getElementsByClassName("postlinecont")[0];
 var vacaLine = document.getElementById("VacancyLine");
 var AppplySec = document.getElementById("ApplySection");
-var Container = document.getElementsByClassName("container")[0];
+var Container = document.getElementsByClassName("Paged")[0];
 
 function Adder(id) {
   console.log(id);
@@ -14,9 +14,9 @@ function Adder(id) {
   } else if (id == "Fees") {
     feesUl.innerHTML += `<li onclick="EditText(event)">item</li>`;
   } else if (id == "Title") {
-    Tablehead.tHead.innerHTML += `<tr class="jch"><th onclick="EditText(event)" colspan="17">Title</th><br></tr>`;
+    Tablehead.tHead.innerHTML += `<tr class="jch"><th onclick="EditText(event)" colspan="16">Title</th></tr><br>`;
   } else if (id == "midThBtn") {
-    midTh.innerHTML += `<tr class="jcmh"><th onclick="EditText(event)" colspan="17">Title</th></tr><br>`;
+    midTh.innerHTML += `<tr class="jcmh"><th onclick="EditText(event)" colspan="16">Title</th></tr>`;
   } else if (id == "postLine") {
     postLine.innerHTML += `<tr>
     <td onclick="EditText(event)" colspan="5">Post Name</td>
@@ -121,7 +121,7 @@ function restore() {
     postLine = document.getElementsByClassName("postlinecont")[0];
     vacaLine = document.getElementById("VacancyLine");
     AppplySec = document.getElementById("ApplySection");
-    Container = document.getElementsByClassName("container")[0];
+    Container = document.getElementsByClassName("Paged")[0];
   }
 }
 
